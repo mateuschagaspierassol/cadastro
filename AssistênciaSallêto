@@ -45,23 +45,3 @@ CREATE TABLE HistoricoAtendimento (
     FOREIGN KEY (status_id) REFERENCES StatusAtendimento(status_id)
 );
 
--- Inserindo alguns status de atendimento
-INSERT INTO StatusAtendimento (descricao) VALUES ('Aberta');
-INSERT INTO StatusAtendimento (descricao) VALUES ('Em andamento');
-INSERT INTO StatusAtendimento (descricao) VALUES ('Concluída');
-
--- Inserindo clientes
-INSERT INTO Clientes (nome, telefone, email, endereco) 
-VALUES ('João Silva', '9999-9999', 'joao@exemplo.com', 'Rua A, 123');
-
--- Inserindo técnicos
-INSERT INTO Tecnicos (nome, especialidade) 
-VALUES ('Maria Souza', 'Montagem de Móveis');
-
--- Criando uma ordem de serviço
-INSERT INTO OrdensServico (cliente_id, tecnico_id, status_id, descricao_problema, data_abertura) 
-VALUES (1, 1, 1, 'Problema na montagem de um armário', date('now'));
-
--- Atualizando status no histórico de atendimento
-INSERT INTO HistoricoAtendimento (ordem_id, data_atualizacao, observacoes, status_id) 
-VALUES (1, date('now'), 'Técnico designado para o atendimento', 2);
